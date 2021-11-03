@@ -1,26 +1,26 @@
 import  * as yup from 'yup'
 
 export const loginValidationSchema = yup.object().shape({
-    email: yup.string().email("ingresa un email valido").required("el email no puede estar vacio"),
-    password: yup.string().required("la contraseña no puede estar vacia")
+    email: yup.string().email("Ingresa un email valido.").required("El email no puede estar vacio."),
+    password: yup.string().required("La contraseña no puede estar vacia.")
 })
 
 export const FormWebPageSchema = yup.object().shape({
-    title: yup.string().required("el titulo no puede estar vacio"),
-    description: yup.string().required("la descripcion no puede estar vacia"),
-    link: yup.string().required("la url no puede estar vacia"),
+    title: yup.string().required("El titulo no puede estar vacio."),
+    description: yup.string().required("La descripcion no puede estar vacia."),
+    link: yup.string().required("La url no puede estar vacia."),
     
 })
 
 export const FormRegisterYup = yup.object().shape({
-    email: yup.string().email("ingresa un email valido").required("el email no puede estar vacio"),
-    password: yup.string().required("la contraseña no puede estar vacia"),
-    confirPassword: yup.string().required("la contraseña no puede estar vacia")
+    email: yup.string().email("Ingresa un email valido.").required("El email no puede estar vacio."),
+    password: yup.string().required("La contraseña no puede estar vacia."),
+    confirPassword: yup.string().required("La contraseña no puede estar vacia.")
 })
 
 export const FormTEchonologyYup = yup.object().shape({
-    technology:yup.string().required("required field"),
-        urlimage:yup.string().url().required("required field"),
-        description:yup.string().required("required field"),
-        url:yup.string().url("url must be a valid URL")
+    technology:yup.string().required("Required field."),
+        urlimage:yup.string().url().required("Required field."),
+        description:yup.string().required("Required field."),
+        url:yup.string().url("Url must be a valid URL.")
 })

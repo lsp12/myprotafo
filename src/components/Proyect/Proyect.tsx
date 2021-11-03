@@ -25,51 +25,15 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect }) => {
   useEffect(() => {
     const array: IFormTechonology[] = [];
     proyect.item.map((item) => {
-      debugger;
-      array.push(technologyList(item));
-      
+      technology.filter((technology: IFormTechonology) => {
+        if (technology.id === item) {
+          array.push(technology);
+        }
+      });
     });
-    console.log(proyect.title);
-    console.log(array);
+
     setlistech(array);
   }, []);
-
-
-
-  const technologyList = (id: string) => {
-    debugger;
-    const list = technology.filter((technology: IFormTechonology) => {
-      debugger;
-      return technology.id === id;
-    });
-    if(list.length > 0){
-      debugger;
-      return list[0].technology as unknown as IFormTechonology;
-      
-    }
-    debugger;
-    return [] as unknown as IFormTechonology;
-    
-    /* console.log(list);
-    if (list.length > 0) {
-      list.map((technology: IFormTechonology) => {
-        return (
-          <Box
-            borderRadius="25%"
-            padding="0.2em"
-            border="1px solid"
-            sx={{
-              backgroundColor: "#424242",
-            }}
-          >
-            <Typography variant="body2" color="white">
-            {technology.technology}
-            </Typography>
-          </Box>
-        );
-      });
-    } */
-  };
 
   return (
     <Grid item xs={4}>
@@ -88,25 +52,24 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect }) => {
             {proyect.description}
           </Typography>
           <Box display="flex" alignItems="center">
-            {listech && listech.map((item:any) => {
-
-              return (
-                <Box
-              borderRadius="25%"
-              padding="0.2em"
-              border="1px solid"
-              sx={{
-                backgroundColor: "#424242",
-              }}
-            >
-              <Typography variant="body2" color="white">
-                {listech}
-              </Typography>
-            </Box>
-              )
-            })
-            }
-            
+            {listech &&
+              listech.map((item: IFormTechonology) => {
+                return (
+                  <Box
+                    borderRadius="5%"
+                    padding="0.2em"
+                    border="1px solid"
+                    marginRight="0.5em"
+                    sx={{
+                      backgroundColor: "#424242",
+                    }}
+                  >
+                    <Typography variant="body2" color="white">
+                      {item.technology}
+                    </Typography>
+                  </Box>
+                );
+              })}
           </Box>
         </CardContent>
         <Box display="flex" alignItems="center" justifyContent="right">

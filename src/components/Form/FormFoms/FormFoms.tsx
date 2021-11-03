@@ -48,31 +48,11 @@ const FormFoms = () => {
           sx={{
             width: "35%",
             minWidth: "25em",
-            background: "#b98d74",
-            border: "2px solid white",
+            background: "rgba(74, 63, 69, 0.6)",
           }}
         >
           <CardContent>
-            <Typography
-              sx={{ fontSize: 14 }}
-              color="text.secondary"
-              gutterBottom
-            >
-              Application form Login
-            </Typography>
-            <Box display="flex" justifyContent="center">
-              <CardMedia
-                component="img"
-                alt="My Imagen"
-                image="https://avatars.githubusercontent.com/u/58646932?s=400&u=4eff013db506eb79005d79195c40847e9803ed32&v=4"
-                title="My Imagen"
-                sx={{
-                  minWidth: "25%",
-                  maxWidth: "15em",
-                  borderRadius: "50%",
-                }}
-              />
-            </Box>
+            
             <Typography
               variant="h5"
               component="div"
@@ -91,14 +71,10 @@ const FormFoms = () => {
                 variant="outlined"
                 {...getFieldProps("email")}
                 sx={{ width: "100%" }}
+                error={!!errors.email && touched.email}
+                helperText={touched.email && errors.email}
               />
-              { errors.email && touched.email && (
-                <Typography
-                  sx={{ fontWeight: 700, fontSize: 14 , color: "red"}}
-                >
-                  {errors.email}
-                </Typography>
-              ) }
+              
             </Typography>
             <Typography
               sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
@@ -110,18 +86,14 @@ const FormFoms = () => {
                 variant="outlined"
                 {...getFieldProps("password")}
                 sx={{ width: "100%" }}
+                error={!!errors.password && touched.password}
+                helperText={touched.password && errors.password}
               />
-              { errors.password && touched.password && (
-                <Typography
-                  sx={{ fontWeight: 700, fontSize: 14 , color: "red"}}
-                >
-                  {errors.password}
-                </Typography>
-              ) }
+              
             </Typography>
           </CardContent>
           <CardActions sx={{ justifyContent: "center" }}>
-            <Button size="small" color="primary" type="submit">
+            <Button size="small" color="secondary" type="submit">
               Next
             </Button>
           </CardActions>

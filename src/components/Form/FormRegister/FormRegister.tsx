@@ -56,14 +56,11 @@ const FormRegister: React.FC = () => {
         sx={{
           width: "35%",
           minWidth: "25em",
-          background: "#b98d74",
-          border: "2px solid white",
+          background: "rgba(74, 63, 69, 0.6)",
         }}
       >
         <CardContent>
-          <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-            Application form Register
-          </Typography>
+          
 
           <Typography
             variant="h5"
@@ -83,12 +80,10 @@ const FormRegister: React.FC = () => {
               variant="outlined"
               {...getFieldProps("email")}
               sx={{ width: "100%" }}
+              error={!!errors.email && touched.email}
+              helperText={touched.email && errors.email}
             />
-            {errors.email && touched.email && (
-            <Typography sx={{ fontWeight: 700, fontSize: 14, color: "red" }}>
-              {errors.email}
-            </Typography>
-          )}
+            
           </Typography>
           
           <Typography
@@ -101,12 +96,10 @@ const FormRegister: React.FC = () => {
               variant="outlined"
               {...getFieldProps("password")}
               sx={{ width: "100%" }}
+              error={!!errors.password && touched.password}
+              helperText={touched.password && errors.password}
             />
-            {errors.password && touched.password && (
-            <Typography sx={{ fontWeight: 700, fontSize: 14, color: "red" }}>
-              {errors.password}
-            </Typography>
-          )}
+            
           </Typography>
           <Typography
             sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
@@ -118,18 +111,16 @@ const FormRegister: React.FC = () => {
               variant="outlined"
               {...getFieldProps("confirPassword")}
               sx={{ width: "100%" }}
+              error={!!errors.confirPassword && touched.confirPassword}
+              helperText={touched.confirPassword && errors.confirPassword}
             />
-            {errors.confirPassword && touched.confirPassword && (
-            <Typography sx={{ fontWeight: 700, fontSize: 14, color: "red" }}>
-              {errors.confirPassword}
-            </Typography>
-          )}
+            
           </Typography>
         </CardContent>
         <CardActions sx={{ justifyContent: "center" }}>
           <Button
             size="small"
-            color="primary"
+            color="secondary"
             type="submit"
           >
             Next
