@@ -14,6 +14,7 @@ import { IFormTechonology, IProject } from "../../interface/interface";
 import { useAppSelector } from "../../Store/hooks";
 import { DeleteProyect } from "../Dialogs/Dialogs";
 import ProyectTransitionsModal from "../Modal/ModalPryect";
+import { visuallyHidden } from '@mui/utils';
 
 interface Iproyectprops {
   proyect: IProject;
@@ -21,6 +22,7 @@ interface Iproyectprops {
 
 const Proyect: React.FC<Iproyectprops> = ({ proyect }) => {
   const { technology } = useAppSelector((state) => state.technology);
+  const { projects } = useAppSelector((state) => state.webPage);
   const [listech, setlistech] = useState<IFormTechonology[]>([]);
   useEffect(() => {
     const array: IFormTechonology[] = [];
@@ -33,7 +35,7 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect }) => {
     });
 
     setlistech(array);
-  }, []);
+  }, [technology, projects]);
 
   return (
     <Grid item xs={4}>

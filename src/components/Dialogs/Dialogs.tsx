@@ -104,7 +104,7 @@ export function DeleteProyect({webProjecy}:proyect) {
             Disagree
           </Button>
           <Button onClick={deleteDocument} autoFocus>
-            Agree
+          accept
           </Button>
         </DialogActions>
       </Dialog>

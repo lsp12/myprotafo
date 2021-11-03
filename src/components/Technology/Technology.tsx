@@ -57,8 +57,31 @@ const Technology: React.FC<tec> = ({ tecnologi }) => {
               </CardActions>
             </Box>
           </Box>
-          <Typography variant="body2" color="text.secondary">
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            /* sx={{
+            height: "5em", overflow: "auto "
+              
+            }} */
+            sx={{
+              overflow:"hidden",
+              textOverflow:"ellipsis",
+              display:"-webkit-box",
+              WebkitLineClamp:3,
+              WebkitBoxOrient:"vertical",
+
+            }}
+          >
+            {/* <p style={{
+              overflow: "hidden",
+              maxLines: 5,
+              width: "300px",
+              text-overflow: "ellipsis",
+
+            }}> */}
             {tecnologi.description}
+            {/* </p> */}
           </Typography>
         </CardContent>
       </Card>
