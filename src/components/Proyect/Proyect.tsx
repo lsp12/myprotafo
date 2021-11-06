@@ -16,6 +16,7 @@ import { DeleteProyect } from "../Dialogs/Dialogs";
 import ProyectTransitionsModal from "../Modal/ModalPryect";
 import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 import { OPEN_PROYECT_ACTION } from "../../Store/OpenProyect/OpenProyectAction";
+import { CardStyled } from "../../Shared/CardStyles/CardStyled";
 
 interface Iproyectprops {
   proyect: IProject;
@@ -47,7 +48,7 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect }) => {
 
   return (
     <Grid item xs={4}>
-      <Card sx={{ maxWidth: 345, marginBottom: "0.5em" }}>
+      <CardStyled sx={{ maxWidth: 345, marginBottom: "0.5em" }}>
         <CardMedia
           component="img"
           height="140"
@@ -95,7 +96,7 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect }) => {
             <ProyectTransitionsModal proyect={proyect} />
           </CardActions>
         </Box>
-      </Card>
+      </CardStyled>
     </Grid>
   );
 };

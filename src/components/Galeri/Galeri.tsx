@@ -7,6 +7,7 @@ import { useAppSelector } from "../../Store/hooks";
 import { IFormTechonology, IProject } from "../../interface/interface";
 import { Box } from "@mui/system";
 import { useEffect, useState } from "react";
+import { CardStyled } from "../../Shared/CardStyles/CardStyled";
 
 const Galery = () => {
   const openProyect: IProject = useAppSelector(
@@ -46,7 +47,7 @@ const Galery = () => {
       </Grid>
       <Grid item xs={6} md={5}>
         <Slider {...settings}>
-          <Card sx={{ minHeight: "15em", display: "flex" }}>
+          <CardStyled sx={{ minHeight: "15em", display: "flex" }}>
             <CardContent sx={{ alignSelf: "center" }}>
               <CardMedia
                 image={openProyect.link}
@@ -55,17 +56,17 @@ const Galery = () => {
                 height="150em"
               />
             </CardContent>
-          </Card>
-          <Card>
+          </CardStyled>
+          <CardStyled>
             <CardContent>
               <h3>2</h3>
             </CardContent>
-          </Card>
-          <Card>
+          </CardStyled>
+          <CardStyled>
             <CardContent>
               <h3>3</h3>
             </CardContent>
-          </Card>
+          </CardStyled>
         </Slider>
       </Grid>
       <Grid item xs={6} md={7}>

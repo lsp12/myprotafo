@@ -32,7 +32,6 @@ useEffect(() => {
     <ThemeProvider theme={theme}>
     <Box
       sx={{
-        backgroundColor: "#785A59",
         width: "100%",
       }}
     >

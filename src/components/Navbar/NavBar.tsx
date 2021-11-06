@@ -1,30 +1,19 @@
-import { AppBar, Button, IconButton, Toolbar, Typography } from "@mui/material";
+import { AppBar, Button, IconButton, Toolbar, Typography, useTheme } from "@mui/material";
 import { Box } from "@mui/system";
 import MenuIcon from "@mui/icons-material/Menu";
 import React, { useEffect } from "react";
-import { useStyles } from "./styles";
 import { ScrollY } from "../Resolution/Resolution";
 import { Link } from "react-router-dom";
-
 const NavBar: React.FC = () => {
-  const classes = useStyles();
+  const theme = useTheme();
   const scroll = ScrollY();
-
-  useEffect(() => {
-    let element = document.getElementById("navbar");
-    if (element) {
-      if (scroll >= 630) {
-        element.style.backgroundColor = "#785A59";
-      } else {
-        element.style.backgroundColor = "#23263a";
-      }
-    }
-  }, [scroll]);
 
   return (
     <Box sx={{ flexGrow: 2 }} width="100%">
       <AppBar position="fixed">
-        <Toolbar color="primary">
+        <Toolbar sx={{
+          background:theme.palette.primary.main,
+        }}>
           <IconButton
             size="large"
             edge="start"

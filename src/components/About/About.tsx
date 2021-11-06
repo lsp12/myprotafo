@@ -8,7 +8,6 @@ const About: React.FC = () => {
       <Box
         marginTop="2em"
         sx={{
-          backgroundColor: "none",
           borderRadius: "1em",
         }}
       >
