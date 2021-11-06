@@ -4,5 +4,5 @@ import { styled } from "@mui/material/styles";
 
 export const CardStyled = styled(Card)<CardProps>(
     ({theme}) => 
-    `background: ${theme.palette.secondary.main};`
+    `background: ${theme.palette.primary.main};`
 )

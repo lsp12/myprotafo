@@ -16,10 +16,11 @@ const App: React.FC = () => {
   palette: {
     mode:"dark",
     primary: {
-      main: "#1f2235",
+      main: "#1f212b",
+      light: "#303240",
     },
     secondary: {
-      main: "#23263a",
+      main: "#474c67",
     },
   },
 });

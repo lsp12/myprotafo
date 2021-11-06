@@ -9,6 +9,7 @@ import {
 import { Box } from "@mui/system";
 import React from "react";
 import { IFormTechonology, Itecnology } from "../../interface/interface";
+import { CardStyled } from "../../Shared/CardStyles/CardStyled";
 import ResponsiveDialog from "../Dialogs/Dialogs";
 import TransitionsModal from "../Modal/Modal";
 interface tec {
@@ -18,7 +19,7 @@ interface tec {
 const Technology: React.FC<tec> = ({ tecnologi }) => {
   return (
     <Grid item xs={6}>
-      <Card variant="outlined">
+      <CardStyled variant="outlined">
         <CardContent>
           <Box
             display="flex"
@@ -84,7 +85,7 @@ const Technology: React.FC<tec> = ({ tecnologi }) => {
             {/* </p> */}
           </Typography>
         </CardContent>
-      </Card>
+      </CardStyled>
     </Grid>
   );
 };

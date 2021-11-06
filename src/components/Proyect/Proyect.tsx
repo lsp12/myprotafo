@@ -47,8 +47,8 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect }) => {
   }
 
   return (
-    <Grid item xs={4}>
-      <CardStyled sx={{ maxWidth: 345, marginBottom: "0.5em" }}>
+    <Grid item xs={12} sm={4}>
+      <CardStyled sx={{ maxWidth: "100%", minHeight:"100%", height:"100%", marginBottom: "0.5em" }}>
         <CardMedia
           component="img"
           height="140"

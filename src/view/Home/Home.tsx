@@ -63,19 +63,20 @@ const Home: React.FC = () => {
         sx={{
           width: "100%",
           minHeight: "100vh",
-          backgroundImage: `url(${Foto1})`,
-          backgroundSize: "cover cover",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundAttachment: "fixed",
+          background:
+            "linear-gradient(90deg, rgba(78,81,106,1) 0%, rgba(48,50,64,1) 71%)",
         }}
       >
         <Perfil />
       </Box>
-      <Box width="100%" display="flex" alignItems="center" 
-      sx={{
-        backgroundColor: theme.palette.primary.main,
-      }}>
+      <Box
+        width="100%"
+        display="flex"
+        alignItems="center"
+        sx={{
+          backgroundColor: theme.palette.secondary.main,
+        }}
+      >
         <About />
         <Box
           id="img"
@@ -93,13 +94,14 @@ const Home: React.FC = () => {
         display="flex"
         justifyContent="center"
         sx={{
-          backgroundColor: theme.palette.secondary.main,
+          backgroundColor: theme.palette.primary.light,
         }}
       >
         <Typography
           variant="h6"
           align="center"
           sx={{
+            color: "white",
             width: "50%",
           }}
         >
@@ -111,16 +113,18 @@ const Home: React.FC = () => {
         marginTop="0em"
         paddingBottom="2em"
         sx={{
-          backgroundColor: theme.palette.secondary.main,
+          backgroundColor: theme.palette.primary.light,
         }}
       >
-        <Galery />
+        <Container>
+          <Galery />
+        </Container>
       </Box>
 
       <Box
         marginTop="0em"
         sx={{
-          backgroundColor: theme.palette.primary.main,
+          backgroundColor: theme.palette.secondary.main,
         }}
       >
         <Container sx={{ padding: "1em" }}>
@@ -129,17 +133,24 @@ const Home: React.FC = () => {
             direction="row"
             justifyContent="space-evenly"
             alignItems="center"
+            spacing={2}
           >
             {getProyect()}
           </Grid>
         </Container>
       </Box>
-      <Box width="100%" marginTop="1em" sx={{}}>
+      <Box width="100%" paddingTop="1em" sx={{
+        backgroundColor: theme.palette.primary.light,
+      }}>
         <Typography variant="h6" align="center" color="white">
           All Technologies learned
         </Typography>
       </Box>
-      <Box marginTop="0.5em" paddingBottom="1em">
+      <Box marginTop="0.5em" paddingBottom="1em"
+      sx={{
+        backgroundColor: theme.palette.primary.light,
+      }}
+      >
         <Container>
           <Grid
             container

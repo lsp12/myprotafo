@@ -1,7 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Card, CardContent, CardMedia, Grid } from "@mui/material";
+import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import "./Style.css";
 import { useAppSelector } from "../../Store/hooks";
 import { IFormTechonology, IProject } from "../../interface/interface";
@@ -42,8 +42,10 @@ const Galery = () => {
     <Grid container direction="row" justifyContent="center" alignItems="center">
       <Grid item xs={12} md={12}>
         <Box textAlign="center">
-      <h2> Proyecto</h2>
-      </Box>
+          <Typography color="white" variant="inherit" fontSize="19px">
+            Proyecto
+          </Typography>
+        </Box>
       </Grid>
       <Grid item xs={6} md={5}>
         <Slider {...settings}>
@@ -69,7 +71,9 @@ const Galery = () => {
           </CardStyled>
         </Slider>
       </Grid>
-      <Grid item xs={6} md={7}>
+      <Grid item xs={6} md={7} sx={{
+        paddingLeft: "2em",
+      }}>
         <h2>{openProyect.title}</h2>
         <p>{openProyect.description}</p>
         <Box display="flex" alignItems="center" alignSelf="initial">
