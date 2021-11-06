@@ -31,6 +31,7 @@ const Home: React.FC = () => {
         element.style.display = "inline";
       }
     }
+    
   }, [resolution]);
 
   const getTechnology = (): any => {

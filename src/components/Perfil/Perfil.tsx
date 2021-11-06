@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React from "react";
+import React, { useEffect } from "react";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
@@ -7,8 +7,24 @@ import { CardMedia, Container, Grid } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { Resolution } from "../Resolution/Resolution";
 
 const Perfil: React.FC = () => {
+
+  const resolution = Resolution();
+
+  useEffect(() => {
+    let element = document.getElementById("perfil");
+    if (element) {
+      if (resolution.width <= 800) {
+        element.style.display = "none";
+      } else {
+        element.style.display = "inline";
+      }
+    }
+    
+  }, [resolution]);
+
   return (
     <Container>
       <Box display="flex" alignContent="center" alignItems="center" alignSelf="center">
@@ -116,6 +132,7 @@ const Perfil: React.FC = () => {
         >
           <Grid item xs={12}>
             <Box
+            id="perfil"
               sx={{
                 marginTop: "25%",
                 alignItems: "center",
