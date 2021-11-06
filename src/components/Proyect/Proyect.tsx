@@ -11,10 +11,11 @@ import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import Portafolio from "../../image/proyect1.jpeg";
 import { IFormTechonology, IProject } from "../../interface/interface";
-import { useAppSelector } from "../../Store/hooks";
+import { useAppDispatch, useAppSelector } from "../../Store/hooks";
 import { DeleteProyect } from "../Dialogs/Dialogs";
 import ProyectTransitionsModal from "../Modal/ModalPryect";
-import { visuallyHidden } from '@mui/utils';
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
+import { OPEN_PROYECT_ACTION } from "../../Store/OpenProyect/OpenProyectAction";
 
 interface Iproyectprops {
   proyect: IProject;
@@ -23,6 +24,7 @@ interface Iproyectprops {
 const Proyect: React.FC<Iproyectprops> = ({ proyect }) => {
   const { technology } = useAppSelector((state) => state.technology);
   const { projects } = useAppSelector((state) => state.webPage);
+  const dispatch = useAppDispatch()
   const [listech, setlistech] = useState<IFormTechonology[]>([]);
   useEffect(() => {
     const array: IFormTechonology[] = [];
@@ -36,6 +38,12 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect }) => {
 
     setlistech(array);
   }, [technology, projects]);
+
+  const handleOpen = ( ) => {
+    
+    dispatch(OPEN_PROYECT_ACTION(proyect));
+    
+  }
 
   return (
     <Grid item xs={4}>
@@ -75,6 +83,11 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect }) => {
           </Box>
         </CardContent>
         <Box display="flex" alignItems="center" justifyContent="right">
+        <CardActions>
+            <RemoveRedEyeOutlinedIcon onClick={
+              handleOpen
+              } />
+          </CardActions>
           <CardActions>
             <DeleteProyect webProjecy={proyect} />
           </CardActions>

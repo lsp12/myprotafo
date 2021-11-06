@@ -11,6 +11,7 @@ import { Resolution } from "../../components/Resolution/Resolution";
 import { TecnologisFront } from "../../data/data";
 import { IFormTechonology, IProject, Itecnology } from "../../interface/interface";
 import { useAppSelector } from "../../Store/hooks";
+import Galery from "../../components/Galeri/Galeri";
 const Home: React.FC = () => {
   const resolution = Resolution();
   const { projects } = useAppSelector((state) => state.webPage);
@@ -92,13 +93,31 @@ const Home: React.FC = () => {
           variant="h6"
           align="center"
           sx={{
-            borderBottom: "1px solid black",
+            
             width: "50%",
           }}
         >
           Developed projects
         </Typography>
       </Box>
+
+
+
+      <Box
+        marginTop="0em"
+        paddingBottom="2em"
+        sx={{
+          backgroundColor: "#fff",
+        }}
+      >
+        
+          
+      <Galery  /> 
+          
+        
+      </Box>
+
+
       <Box
         marginTop="0em"
         sx={{

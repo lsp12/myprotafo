@@ -16,7 +16,7 @@ const NavBar: React.FC = () => {
       if (scroll >= 630) {
         element.style.backgroundColor = "#785A59";
       } else {
-        element.style.backgroundColor = "#000000";
+        element.style.backgroundColor = "#23263a";
       }
     }
   }, [scroll]);
@@ -24,7 +24,7 @@ const NavBar: React.FC = () => {
   return (
     <Box sx={{ flexGrow: 2 }} width="100%">
       <AppBar position="fixed">
-        <Toolbar id="navbar" className={classes.root}>
+        <Toolbar color="primary">
           <IconButton
             size="large"
             edge="start"

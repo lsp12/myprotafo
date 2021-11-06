@@ -4,6 +4,7 @@ import ProjectReducer from './ActionReducer/ProjectSlice'
 import AuthReducer from './ActionAuth/AuthSlice'
 import TechnologyReducer from './ActionTechnology/TechnologySlice'
 import WebPageReducer from './ActionWebPage/WebPageSlice'
+import OpenProyect from './OpenProyect/OpenProyectSlice'
 
 export const store = configureStore({
   reducer: {
@@ -11,7 +12,8 @@ export const store = configureStore({
     project:ProjectReducer,
     auth:AuthReducer,
     technology:TechnologyReducer,
-    webPage:WebPageReducer
+    webPage:WebPageReducer,
+    OpenProyect
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 

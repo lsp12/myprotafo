@@ -10,15 +10,16 @@ import { getWepPage } from "./Store/ActionWebPage/WebPageReducer";
 import { useAppDispatch } from "./Store/hooks";
 
 
+
 const App: React.FC = () => {
   const theme = createTheme({
   palette: {
     mode:"dark",
     primary: {
-      main: purple[500],
+      main: "#1f2235",
     },
     secondary: {
-      main: "#000",
+      main: "#23263a",
     },
   },
 });
