@@ -62,7 +62,7 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect }) => {
           <Typography variant="body2" color="text.secondary">
             {proyect.description}
           </Typography>
-          <Box display="flex" alignItems="center">
+          <Box display="flex" alignItems="center" overflow="auto">
             {listech &&
               listech.map((item: IFormTechonology) => {
                 return (
@@ -75,7 +75,9 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect }) => {
                       backgroundColor: "#424242",
                     }}
                   >
-                    <Typography variant="body2" color="white">
+                    <Typography variant="body2" color="white" sx={{
+                      whiteSpace: "nowrap",
+                    }}>
                       {item.technology}
                     </Typography>
                   </Box>
