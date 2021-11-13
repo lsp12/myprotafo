@@ -48,9 +48,7 @@ export default function TransitionsModal({tecnologi}:tec) {
       validationSchema: FormTEchonologyYup,
       onSubmit: async ({ technology, urlimage, description, url }) => {
           const id =  tecnologi.id
-          console.log("esta es la ID" +id)
         /* dispatch(saveTechnology({ technology, urlimage, description, url })) */
-        console.log(id,technology, urlimage, description, url);
         dispatch( updateTechnology({id,technology, urlimage, description, url }))
         setOpen(false)
         resetForm();

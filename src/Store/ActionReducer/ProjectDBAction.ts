@@ -1,4 +1,4 @@
-import { addDoc, collection, getDocs, query } from "@firebase/firestore";
+import { collection, getDocs, query } from "@firebase/firestore";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import projectConverter from "../../converter/ProjectConverter";
 import { db } from "../../FireBase/FireBase";
@@ -14,7 +14,6 @@ export const getProjects = createAsyncThunk("project/getProjects", async () => {
     });
     return data;
   } catch (error) {
-      console.log(error);
   }
 });
 

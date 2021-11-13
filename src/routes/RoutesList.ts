@@ -1,5 +1,4 @@
 import Admin from "../view/Admin/Admin";
-import Home from "../view/Home/Home";
 import Login from "../view/Login/Login";
 import Register from "../view/Register/Register";
 

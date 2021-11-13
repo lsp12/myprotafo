@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IFormTechonology, ITechnologyState } from "../../interface/interface";
+import { ITechnologyState } from "../../interface/interface";
 import { getTechnology, saveTechnology } from "./TechnologyReducer";
 
 const initialState:ITechnologyState ={

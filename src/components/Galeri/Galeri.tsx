@@ -1,7 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import "./Style.css";
 import { useAppSelector } from "../../Store/hooks";
 import { IFormTechonology, IProject } from "../../interface/interface";
@@ -10,9 +10,15 @@ import { useEffect, useState } from "react";
 import { CardStyled } from "../../Shared/CardStyles/CardStyled";
 
 const Galery = () => {
-  const openProyect: IProject = useAppSelector(
+  let openProyect: IProject = useAppSelector(
     (state) => state.OpenProyect.openProyect
   );
+  const { projects } = useAppSelector((state) => state.webPage);
+  if(!openProyect.id){
+    openProyect=projects[0]
+  
+  }
+  
   const { technology } = useAppSelector((state) => state.technology);
   const [nameById, setNameById] = useState<IFormTechonology[]>([]);
 
@@ -27,7 +33,9 @@ const Galery = () => {
 
   useEffect(() => {
     const array: IFormTechonology[] = [];
+    // eslint-disable-next-line array-callback-return
     openProyect.item.map((item) => {
+      // eslint-disable-next-line array-callback-return
       technology.filter((technology: IFormTechonology) => {
         if (technology.id === item) {
           array.push(technology);

@@ -3,10 +3,10 @@ import {
   Card,
   CardActions,
   CardContent,
-  Checkbox,
   Chip,
+  Collapse,
+  Fab,
   FormControl,
-  FormControlLabel,
   InputLabel,
   MenuItem,
   OutlinedInput,
@@ -15,19 +15,22 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { Field, Formik, useFormik } from "formik";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import { useFormik } from "formik";
+import React, {useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { auth } from "../../../FireBase/FireBase";
 import { IFormTechonology } from "../../../interface/interface";
 import { useAppDispatch, useAppSelector } from "../../../Store/hooks";
 import { FormWebPageSchema } from "../../../validationSchema/validationSchema";
-import MultipleSelectChip from "../../CheckboxExample/CheckboxExample";
 import { Theme, useTheme } from "@mui/material/styles";
 import "./stykle.css";
 import { Box } from "@mui/system";
-import { getTechnology } from "../../../Store/ActionTechnology/TechnologyReducer";
+import AddIcon from "@mui/icons-material/Add";
 import { createProject } from "../../../Store/ActionWebPage/WebPageReducer";
+import  {
+  renderItem,
+} from "../../Collasable/renderItem";
+
+import { TransitionGroup } from "react-transition-group";
 
 interface IFormWebPage {
   title: "";
@@ -57,13 +60,31 @@ function getStyles(name: string, personName: readonly string[], theme: Theme) {
 }
 
 const FormWebPage: React.FC = () => {
+  //crear una variable para el usestate que guarde en un array los links
+  const [links, setLinks] = useState<string[]>([]);
+  const [deleteLinks, setDeleteLinks] = useState<string>("");
   const theme = useTheme();
   const [personName, setPersonName] = React.useState<string[]>([]);
   const { technology } = useAppSelector((state) => state.technology);
   const dispatch = useAppDispatch();
 
+  const addLink = () => {
+    setLinks([...links, getFieldProps("link").value]);
+    console.log(getFieldProps("link").value);
 
+    setFieldValue("link", "");
+    console.log(links);
+    console.log(links.length);
+  }
 
+useEffect(() => {
+  if(deleteLinks!==""){
+    links.splice(links.indexOf(deleteLinks),1)
+    setDeleteLinks("")
+  }
+},[deleteLinks, links])
+
+  
   function nameById(data: string) {
     const tecnology = technology.filter(
       (tecnology: IFormTechonology) => tecnology.id === data
@@ -81,36 +102,42 @@ const FormWebPage: React.FC = () => {
     );
   };
 
-  const { getFieldProps, handleSubmit, resetForm, errors, touched } =
-    useFormik<IFormWebPage>({
-      initialValues: {
-        title: "",
-        description: "",
-        link: "",
-        item: [],
-      },
-      validationSchema: FormWebPageSchema,
-      onSubmit: async ({ title, description, link, item }) => {
-        try {
-          const logued = { title, description, link, item: personName };
-          dispatch(createProject(logued));
-          setPersonName([]);
-          toast.success("REgister efectivo");
+  const {
+    getFieldProps,
+    handleSubmit,
+    resetForm,
+    setFieldValue,
+    errors,
+    touched,
+  } = useFormik<IFormWebPage>({
+    initialValues: {
+      title: "",
+      description: "",
+      link: "",
+      item: [],
+    },
+    validationSchema: FormWebPageSchema,
+    onSubmit: async ({ title, description, link, item }) => {
+      try {
+        const logued = { title, description, link, item: personName };
+        dispatch(createProject(logued));
+        setPersonName([]);
+        toast.success("REgister efectivo");
 
-          resetForm();
-        } catch (error) {
-          toast.error("Algo fallo..?");
-          console.log(error);
-        }
-      },
-    });
+        resetForm();
+      } catch (error) {
+        toast.error("Algo fallo..?");
+        console.log(error);
+      }
+    },
+  });
 
   return (
     <form onSubmit={handleSubmit} autoComplete="off">
       <Card
         sx={{
           width: "100%",
-          background: "#b98d74",
+          background: "#1f212b",
           border: "2px solid white",
         }}
       >
@@ -146,7 +173,13 @@ const FormWebPage: React.FC = () => {
           )}
 
           <Typography
-            sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
+            sx={{
+              mb: 1.5,
+              marginTop: "2em",
+              textAlign: "center",
+              display: "flex",
+              alignItems: "center",
+            }}
             color="text.secondary"
           >
             <TextField
@@ -156,14 +189,19 @@ const FormWebPage: React.FC = () => {
               color="secondary"
               {...getFieldProps("link")}
               sx={{ width: "100%" }}
+              error={!!errors.link && touched.link}
+              helperText={touched.link && errors.link}
             />
-            {errors.link && touched.link && (
-              <Typography sx={{ fontWeight: 700, fontSize: 14, color: "red" }}>
-                {errors.link}
-              </Typography>
-            )}
+            <Fab size="small" color="primary" aria-label="add">
+              <AddIcon onClick={addLink} />
+            </Fab>
           </Typography>
-
+          <TransitionGroup>
+            {links.length > 0 &&
+              links.map((item: string, index) => (
+                <Collapse key={index}>{renderItem(item, setDeleteLinks)}</Collapse>
+              ))}
+          </TransitionGroup>
           <Typography
             sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
             color="text.secondary"

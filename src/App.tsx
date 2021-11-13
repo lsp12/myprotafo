@@ -1,5 +1,4 @@
 import { createTheme, ThemeProvider } from "@mui/material";
-import { purple } from "@mui/material/colors";
 import { Box } from "@mui/system";
 import React, { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
@@ -28,6 +27,7 @@ const dispatch = useAppDispatch();
 useEffect(() => {
   dispatch(getTechnology())
   dispatch(getWepPage());
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [])
   return (
     <ThemeProvider theme={theme}>

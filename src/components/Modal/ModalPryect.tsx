@@ -44,12 +44,6 @@ interface Iproyectprops {
   proyect: IProject;
 }
 
-interface IFormWebPage {
-  title: "";
-  description: "";
-  link: "";
-  item: [];
-}
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -84,11 +78,13 @@ export default function ProyectTransitionsModal({ proyect }: Iproyectprops) {
     const tecnologiesIdsToPut: any = [];
     const item = proyect.item;
     if (item !== undefined && item.length > 0) {
+      // eslint-disable-next-line array-callback-return
       item.map((e: any) => {
         tecnologiesIdsToPut.push(e);
       });
     }
     setPersonName(tecnologiesIdsToPut as string[]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items]);
 
   function nameById(data: string) {
@@ -124,16 +120,13 @@ export default function ProyectTransitionsModal({ proyect }: Iproyectprops) {
       onSubmit: async ({ title, description, link, item }) => {
         try {
           const id = proyect.id;
-          console.log("id del proyecto a actualizar" + id);
           const logued = { id, title, description, link, item: personName };
           await dispatch(updateProject(logued));
-          console.log(logued);
           setPersonName([]);
           setOpen(false);
           resetForm();
         } catch (error) {
           toast.error("Algo fallo..?");
-          console.log(error);
         }
       },
     });

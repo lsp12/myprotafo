@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
 import { auth } from "../FireBase/FireBase";
 import { getUserLogeed } from "../Store/ActionAuth/AuthReducer";
-import { useAppDispatch, useAppSelector } from "../Store/hooks";
+import { useAppDispatch } from "../Store/hooks";
 import Home from "../view/Home/Home";
 import PrivadeRoutes from "./PrivadeRoutes/PrivadeRoutes";
 import PublicRoutes from "./PublicRoutes/PublicRoutes";
@@ -12,7 +12,6 @@ import { PublicRoutesList,PrivateRoutesList , RoutesList} from "./RoutesList";
 
 
 const Routes: React.FC = () => {
-  const { user } = useAppSelector((state: any) => state.auth);
   const dispatch = useAppDispatch();
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
@@ -20,6 +19,7 @@ const Routes: React.FC = () => {
         dispatch(getUserLogeed(user.uid));
       }
     });
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <Switch>

@@ -17,10 +17,10 @@ export const saveTechnology = createAsyncThunk(
   "technology/post",
   async (data: IFormTechonology, { dispatch }) => {
     try {
-      const technology = await addDoc(collection(db, "technology"), data);
+      await addDoc(collection(db, "technology"), data);
       dispatch(getTechnology());
     } catch (error) {
-      console.log(error);
+      toast.error("error");
     }
   }
 );
@@ -35,7 +35,7 @@ export const getTechnology = createAsyncThunk("technology/get", async () => {
     });
     return data;
   } catch (error) {
-    console.log(error);
+    toast.error("error");
   }
 });
 
@@ -61,7 +61,7 @@ export const updateTechnology = createAsyncThunk(
         dispatch(getTechnology());
       }
     } catch (error) {
-      console.log(error);
+      
       toast.update(id, {
         render: "All is good",
         type: "error",
@@ -89,7 +89,6 @@ export const deleteTechnology = createAsyncThunk("technology/delete", async (dat
     }
 
   } catch (error) {
-    console.log(error);
     toast.update(id, {
       render: "Error",
       type: "error",

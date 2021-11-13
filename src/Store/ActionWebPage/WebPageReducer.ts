@@ -18,7 +18,7 @@ export const getWepPage = createAsyncThunk("webPage/get", async ()=>{
     return data;
 
     } catch (error) {
-        console.log(error)
+        toast.error("error");
     }
 })
 
@@ -39,7 +39,6 @@ export const deleteWebPage = createAsyncThunk("webPage/delete", async (data: IPr
       }
   
     } catch (error) {
-      console.log(error);
       toast.update(id, {
         render: "Error",
         type: "error",
@@ -53,7 +52,7 @@ export const deleteWebPage = createAsyncThunk("webPage/delete", async (data: IPr
   export const createProject = createAsyncThunk("project/createProject", async (project: IProject, {dispatch}) => {
     const id = toast.loading("this load");
     try {
-      const docRef = await addDoc(collection(db, "projects"), project);
+      await addDoc(collection(db, "projects"), project);
       toast.update(id, {
         render: "Web page Create success",
         type: "success",
@@ -70,7 +69,6 @@ export const deleteWebPage = createAsyncThunk("webPage/delete", async (data: IPr
             autoClose: 5000,
             closeButton:true,
           });
-        console.log(error);
     }
   });
 
@@ -94,7 +92,6 @@ export const deleteWebPage = createAsyncThunk("webPage/delete", async (data: IPr
           });
           dispatch(getWepPage());
       } catch (error) {
-        console.log(error);
         toast.update(id, {
           render: "All is good",
           type: "error",

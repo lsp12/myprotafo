@@ -1,10 +1,9 @@
-import React, { ChangeEvent, useState } from "react";
+import React from "react";
 import {
   Button,
   Card,
   CardActions,
   CardContent,
-  InputLabel,
   TextField,
   Typography,
 } from "@mui/material";
@@ -16,7 +15,7 @@ import { FormTEchonologyYup } from "../../../validationSchema/validationSchema";
 import { saveTechnology } from "../../../Store/ActionTechnology/TechnologyReducer";
 
 const FormTechnology: React.FC = () => {
-  type InputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
+  /* type InputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>; */
 
   const dispatch= useAppDispatch();
 
@@ -137,20 +136,7 @@ const FormTechnology: React.FC = () => {
         </Typography>
 
 
-        {/* <Typography
-          sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
-          color="text.secondary"
-        >
-          <InputLabel htmlFor="standard-adornment-password">
-            Selectd a Image
-          </InputLabel>
-          <div className="button-wrap">
-            <label className="button" htmlFor="nuestroinput">
-              Upload image
-            </label>
-            <input id="nuestroinput" type="file" placeholder="Last name" />
-          </div>
-        </Typography> */}
+        
       </CardContent>
       <CardActions sx={{ justifyContent: "center" }}>
         <Button

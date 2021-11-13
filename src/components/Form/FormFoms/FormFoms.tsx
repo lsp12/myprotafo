@@ -1,15 +1,11 @@
 import React from "react";
 import { useFormik } from "formik";
 import { loginValidationSchema } from "../../../validationSchema/validationSchema";
-import { signInWithEmailAndPassword } from "@firebase/auth";
-import { auth } from "../../../FireBase/FireBase";
 import {
-  Box,
   Button,
   Card,
   CardActions,
   CardContent,
-  CardMedia,
   Grid,
   TextField,
   Typography,

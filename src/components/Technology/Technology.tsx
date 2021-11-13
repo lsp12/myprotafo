@@ -1,5 +1,4 @@
 import {
-  Card,
   CardActions,
   CardContent,
   CardMedia,
@@ -8,18 +7,19 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import { IFormTechonology, Itecnology } from "../../interface/interface";
+import { IFormTechonology } from "../../interface/interface";
 import { CardStyled } from "../../Shared/CardStyles/CardStyled";
 import ResponsiveDialog from "../Dialogs/Dialogs";
 import TransitionsModal from "../Modal/Modal";
 interface tec {
   tecnologi: IFormTechonology;
+  admin: boolean;
 }
 
-const Technology: React.FC<tec> = ({ tecnologi }) => {
+const Technology: React.FC<tec> = ({ tecnologi, admin }) => {
   return (
     <Grid item xs={6}>
-      <CardStyled variant="outlined">
+      <CardStyled variant="outlined" sx={{ maxWidth: "100%", minHeight:"100%", height:"100%", marginBottom: "0.5em" }} >
         <CardContent>
           <Box
             display="flex"
@@ -28,6 +28,7 @@ const Technology: React.FC<tec> = ({ tecnologi }) => {
             justifyContent="space-between"
           >
             <Box justifyContent="center" display="flex" alignItems="center">
+              {/* eslint-disable-next-line react/jsx-no-target-blank*/}
               <a href={tecnologi.url} target="_blank">
                 <CardMedia
                   component="img"
@@ -49,6 +50,7 @@ const Technology: React.FC<tec> = ({ tecnologi }) => {
                 {tecnologi.technology}
               </Typography>
             </Box>
+            {admin && (
             <Box display="flex" alignItems="center">
               <CardActions>
                 <ResponsiveDialog technology={tecnologi} />
@@ -57,14 +59,11 @@ const Technology: React.FC<tec> = ({ tecnologi }) => {
                 <TransitionsModal tecnologi={tecnologi} />
               </CardActions>
             </Box>
+            )}
           </Box>
           <Typography
             variant="body2"
             color="text.secondary"
-            /* sx={{
-            height: "5em", overflow: "auto "
-              
-            }} */
             sx={{
               overflow:"hidden",
               textOverflow:"ellipsis",
@@ -74,15 +73,9 @@ const Technology: React.FC<tec> = ({ tecnologi }) => {
 
             }}
           >
-            {/* <p style={{
-              overflow: "hidden",
-              maxLines: 5,
-              width: "300px",
-              text-overflow: "ellipsis",
-
-            }}> */}
+            
             {tecnologi.description}
-            {/* </p> */}
+            
           </Typography>
         </CardContent>
       </CardStyled>

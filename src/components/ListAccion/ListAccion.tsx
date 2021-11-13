@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 import { changeList } from '../../Store/ActionReducer/ProjectAction';
 
 const ListAccion:React.FC = () => {
-    const [open, setOpen] = React.useState(true);
     const dispatch = useDispatch();
     
     const selectAction = (id: string) =>{
@@ -15,6 +14,7 @@ const ListAccion:React.FC = () => {
 
     useEffect(() => {
       dispatch(changeList("WebPage"))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

@@ -33,18 +33,23 @@ const About: React.FC = () => {
           spacing={2}
         >
           <Grid item xs={10}>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              Hi, I'm Jonathan, I'm 20 years old, I studied at the Technical
-              University of Babahoyo in the Information Systems career. At 17 I
-              started studying web programming and developed a taste for it.
-              Currently I am dedicated to web programming I have 3 years of
-              experience working in the web environment with the passage of time
-              I gained more knowledge and using more tools giving more
-              complexity to web projects.
-              <br /><br />I handle technologies such as: javascript, react, html, css,
+            <Typography
+              sx={{ mb: 1.5, textJustify: "inter-word", textAlign: "justify" }}
+              color="text.secondary"
+            >
+              Hello, I'm Jonathan, I'm 20 years old, I'm Ecuadorian and I live
+              in Babahoyo, I studied at the Technical University of Babahoyo in
+              the career of Information Systems. At 17 I began to study web
+              programming and developed a taste for it. Currently I am dedicated
+              to web programming I have 3 years of experience working in the web
+              environment with the passage of time I was acquiring more
+              knowledge and using more tools giving more complexity to web
+              projects.
+              <br />
+              <br />I handle technologies such as: javascript, react, html, css,
               typesctript, React, Redux, Socket.io, json Web Token, Material-ui
               (MUI), ESLint, js-cookies, Bootstrap, Express, Node, MongoDB,
-              MySql, FireBase and creation of Rest Api
+              MySql, FireBase and creation of Rest Api.
             </Typography>
           </Grid>
         </Grid>

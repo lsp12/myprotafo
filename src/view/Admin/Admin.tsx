@@ -8,19 +8,18 @@ import ListAccion from "../../components/ListAccion/ListAccion";
 import Proyect from "../../components/Proyect/Proyect";
 import Technology from "../../components/Technology/Technology";
 import { IFormTechonology, IProject } from "../../interface/interface";
-import { getTechnology } from "../../Store/ActionTechnology/TechnologyReducer";
-import { useAppDispatch, useAppSelector } from "../../Store/hooks";
+import { useAppSelector } from "../../Store/hooks";
 
 const Admin: React.FC = () => {
   const { open } = useSelector((state: any) => state.actionOpen);
   const { projects } = useAppSelector((state) => state.webPage);
   const { technology } = useAppSelector((state) => state.technology);
   const [component, setcomponent] = useState();
-  const dispatch = useAppDispatch();
   const handlerSelect = 1;
 
   useEffect(() => {
     setcomponent(handlerCard(open));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [technology, open, projects]);
 
   const handlerForm = (param: string): any => {
@@ -38,14 +37,13 @@ const Admin: React.FC = () => {
     switch (param) {
       case "WebPage":
         return projects.map((e: IProject, i: number) => (
-          <Proyect proyect={e} key={i.toString()} />
+          <Proyect proyect={e} key={i.toString()} view={false} admin={true} />
         ));
       case "Newtech":
-        console.log(technology);
         return (
           technology &&
           technology.map((e: IFormTechonology, i: number) => (
-            <Technology tecnologi={e} key={i.toString()} />
+            <Technology tecnologi={e} key={i.toString()} admin={true}/>
           ))
         );
       default:

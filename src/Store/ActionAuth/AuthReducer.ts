@@ -15,9 +15,10 @@ export const loginSet =  createAsyncThunk("auth/login", async (data:logiunData, 
         const {user} = await signInWithEmailAndPassword(auth, data.email, data.password);
         toast.success("Login Successful");
         dispatch(getUserLogeed(user.uid));
+        dispatch(FaildLogin(true));
       } catch (error) {
           toast.error("Login fail");
-          console.log(error);
+          dispatch(FaildLogin(false))
       }
 
 });
@@ -32,7 +33,6 @@ export const registerSet = createAsyncThunk("auth/register", async (data:logiunD
     });
     toast.success("Register Successful");
     } catch (error) {
-        console.log(error);
     }
 });
 
@@ -47,6 +47,10 @@ export const getUserLogeed = createAsyncThunk("auth/getUserLogeed", async (id:st
       createdAt
     }
   } catch (error) {
-      console.log(error);
   }
+});
+
+export const FaildLogin = createAsyncThunk("auth/FaildLogin", async (date:Boolean)=>{
+  return date;
+
 });

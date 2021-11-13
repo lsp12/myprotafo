@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useFormik } from "formik";
-import React, { ChangeEvent, useState } from "react";
+import React from "react";
 import { toast } from "react-toastify";
 import { registerSet } from "../../../Store/ActionAuth/AuthReducer";
 import { useAppDispatch } from "../../../Store/hooks";
@@ -21,7 +21,7 @@ interface IFormRegister {
 }
 
 const FormRegister: React.FC = () => {
-  type InputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>;
+  /* type InputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>; */
 
   const dispatch = useAppDispatch();
   const {getFieldProps, handleSubmit, resetForm, errors, touched}= useFormik<IFormRegister>({
@@ -39,7 +39,7 @@ const FormRegister: React.FC = () => {
         toast.success("Registro exitoso")
       } catch (error) {
         toast.error("Algo fallo..?");
-          console.log(error);
+       
       }
     }
   })

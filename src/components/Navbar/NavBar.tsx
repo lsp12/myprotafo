@@ -1,12 +1,12 @@
 import { AppBar, Button, IconButton, Toolbar, Typography, useTheme } from "@mui/material";
 import { Box } from "@mui/system";
 import MenuIcon from "@mui/icons-material/Menu";
-import React, { useEffect } from "react";
-import { ScrollY } from "../Resolution/Resolution";
+import React from "react";
+/* import { ScrollY } from "../Resolution/Resolution"; */
 import { Link } from "react-router-dom";
 const NavBar: React.FC = () => {
   const theme = useTheme();
-  const scroll = ScrollY();
+  /* const scroll = ScrollY(); */
 
   return (
     <Box sx={{ flexGrow: 2 }} width="100%">

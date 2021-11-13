@@ -3,14 +3,14 @@ import React, { useEffect } from "react";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
-import { CardMedia, Container, Grid } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { Resolution } from "../Resolution/Resolution";
+import { ReactComponent as About } from "../../image/svg/about.svg";
 
 const Perfil: React.FC = () => {
-
   const resolution = Resolution();
 
   useEffect(() => {
@@ -22,22 +22,23 @@ const Perfil: React.FC = () => {
         element.style.display = "inline";
       }
     }
-    
   }, [resolution]);
 
   return (
     <Container>
-      <Box display="flex" alignContent="center" alignItems="center" alignSelf="center">
-        
-
-        <Grid
-          container
-          direction="column"
-          justifyContent="center"
-          alignItems="center"
-        >
-          <Grid item xs={12}>
-            <Box sx={{marginTop: "25%",}}>
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+          marginBottom: "0em",
+          paddingTop: "5em",
+        }}
+      >
+        <Grid item xs={12}>
+          <Box display="flex" alignItems="center">
+            <Box marginRight="2em">
               <CardContent>
                 <Typography
                   sx={{ fontSize: 14 }}
@@ -51,6 +52,8 @@ const Perfil: React.FC = () => {
                   variant="h5"
                   textAlign="center"
                   sx={{
+                    color: "white",
+                    fontFamily: "body",
                     display: "flex",
                     borderTop: "1px solid black",
                     borderBottom: "1px solid black",
@@ -59,6 +62,8 @@ const Perfil: React.FC = () => {
                   }}
                 >
                   JONATHAN VERA MACIAS
+                  <br />
+                  DEVELOPED WED
                 </Typography>
 
                 <Box display="flex" justifyContent="center" alignItems="center">
@@ -97,8 +102,7 @@ const Perfil: React.FC = () => {
                           target="_blank"
                         >
                           <WhatsAppIcon sx={{ color: "#323232" }} />
-                        </a>{" "}
-                        <>+593 997747418</>
+                        </a>
                       </Typography>
                     </Typography>
                   </Box>
@@ -109,9 +113,10 @@ const Perfil: React.FC = () => {
                       <br />
                       <Typography
                         sx={{
+                          color: "white",
                           textDecoration: "none",
-                          color: "#000000",
                           alignItems: "center",
+                          fontFamily: "body",
                         }}
                       >
                         jonathankenny852@gmail.com
@@ -121,39 +126,20 @@ const Perfil: React.FC = () => {
                 </Box>
               </CardContent>
             </Box>
-          </Grid>
-        </Grid>
-
-        <Grid
-          container
-          direction="column"
-          justifyContent="space-evenly"
-          alignItems="center"
-        >
-          <Grid item xs={12}>
             <Box
-            id="perfil"
+              id="perfil"
               sx={{
-                marginTop: "25%",
                 alignItems: "center",
                 justifyContent: "center",
                 display: "flex",
               }}
             >
-              <CardMedia
-                component="img"
-                alt="My Imagen"
-                image="https://cdn.discordapp.com/attachments/799457340910469151/906369571546615818/58646932-removebg-preview.png"
-                title="My Imagen"
-                sx={{
-                  minWidth: "25%",
-                  maxWidth: "50em",
-                }}
-              />
+              <About style={{ width: "50%" }} />
             </Box>
-          </Grid>
-        </Grid> 
-      </Box>
+          </Box>
+        </Grid>
+        
+      </Grid>
     </Container>
   );
 };

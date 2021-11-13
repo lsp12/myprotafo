@@ -20,7 +20,7 @@ export const FormRegisterYup = yup.object().shape({
 
 export const FormTEchonologyYup = yup.object().shape({
     technology:yup.string().required("Required field."),
-        urlimage:yup.string().url().required("Required field."),
+        urlimage:yup.string().url().required("Required field.").nullable(),
         description:yup.string().required("Required field."),
         url:yup.string().url("Url must be a valid URL.")
 })

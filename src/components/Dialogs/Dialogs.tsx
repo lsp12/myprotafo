@@ -27,7 +27,7 @@ export default function ResponsiveDialog({technology}:dialog) {
     setOpen(false);
   };
   const deleteDocument = ()=>{
-    console.log(technology.id)
+    
     dispatch(deleteTechnology(technology))
     setOpen(false);
   }
@@ -78,7 +78,7 @@ export function DeleteProyect({webProjecy}:proyect) {
     setOpen(false);
   };
   const deleteDocument = ()=>{
-    console.log(webProjecy.id)
+    
     dispatch(deleteWebPage(webProjecy))
     setOpen(false);
   }
