@@ -16,7 +16,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useFormik } from "formik";
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { IFormTechonology } from "../../../interface/interface";
 import { useAppDispatch, useAppSelector } from "../../../Store/hooks";
@@ -26,9 +26,7 @@ import "./stykle.css";
 import { Box } from "@mui/system";
 import AddIcon from "@mui/icons-material/Add";
 import { createProject } from "../../../Store/ActionWebPage/WebPageReducer";
-import  {
-  renderItem,
-} from "../../Collasable/renderItem";
+import { renderItem } from "../../Collasable/renderItem";
 
 import { TransitionGroup } from "react-transition-group";
 
@@ -69,22 +67,25 @@ const FormWebPage: React.FC = () => {
   const dispatch = useAppDispatch();
 
   const addLink = () => {
-    setLinks([...links, getFieldProps("link").value]);
-    console.log(getFieldProps("link").value);
+    /* setLinks([...links, getFieldProps("link").value]); */
+    if (getFieldProps("link").value) {
+      setLinks([...links, getFieldProps("link").value]);
+      console.log(getFieldProps("link").value);
 
     setFieldValue("link", "");
     console.log(links);
     console.log(links.length);
-  }
+    }
+    
+  };
 
-useEffect(() => {
-  if(deleteLinks!==""){
-    links.splice(links.indexOf(deleteLinks),1)
-    setDeleteLinks("")
-  }
-},[deleteLinks, links])
+  useEffect(() => {
+    if (deleteLinks !== "") {
+      links.splice(links.indexOf(deleteLinks), 1);
+      setDeleteLinks("");
+    }
+  }, [deleteLinks, links]);
 
-  
   function nameById(data: string) {
     const tecnology = technology.filter(
       (tecnology: IFormTechonology) => tecnology.id === data
@@ -119,7 +120,7 @@ useEffect(() => {
     validationSchema: FormWebPageSchema,
     onSubmit: async ({ title, description, link, item }) => {
       try {
-        const logued = { title, description, link, item: personName };
+        const logued = { title, description, link:links, item: personName };
         dispatch(createProject(logued));
         setPersonName([]);
         toast.success("REgister efectivo");
@@ -199,7 +200,9 @@ useEffect(() => {
           <TransitionGroup>
             {links.length > 0 &&
               links.map((item: string, index) => (
-                <Collapse key={index}>{renderItem(item, setDeleteLinks)}</Collapse>
+                <Collapse key={index}>
+                  {renderItem(item, setDeleteLinks)}
+                </Collapse>
               ))}
           </TransitionGroup>
           <Typography
@@ -256,7 +259,12 @@ useEffect(() => {
           </FormControl>
         </CardContent>
         <CardActions sx={{ justifyContent: "center" }}>
-          <Button size="small" color="primary" type="submit">
+          <Button
+            size="small"
+            color="secondary"
+            variant="contained"
+            type="submit"
+          >
             Save
           </Button>
         </CardActions>

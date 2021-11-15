@@ -115,6 +115,7 @@ const Admin: React.FC = () => {
               direction="row"
               justifyContent="center"
               alignItems="center"
+              spacing={2}
             >
               {component}
             </Grid>

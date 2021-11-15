@@ -13,12 +13,11 @@ import Proyect from "../../components/Proyect/Proyect";
 import Technology from "../../components/Technology/Technology";
 import about from "../../image/about.jpg";
 import { Resolution } from "../../components/Resolution/Resolution";
-import {
-  IFormTechonology,
-  IProject,
-} from "../../interface/interface";
+import { IFormTechonology, IProject } from "../../interface/interface";
 import { useAppSelector } from "../../Store/hooks";
 import Galery from "../../components/Galeri/Galeri";
+import blob from "../../image/svg/blob.svg";
+
 const Home: React.FC = () => {
   const theme = useTheme();
   const resolution = Resolution();
@@ -80,7 +79,16 @@ const Home: React.FC = () => {
           backgroundColor: theme.palette.secondary.main,
         }}
       >
-        <About />
+        <Box
+          sx={{
+            backgroundImage: `url(${blob})`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <About />
+        </Box>
         <Box
           id="img"
           sx={{
@@ -90,6 +98,7 @@ const Home: React.FC = () => {
           <img src={about} style={{ maxWidth: "100%" }} alt="about" />
         </Box>
       </Box>
+      <div id="scroll" />
       <Box
         width="100%"
         marginTop="0em"
@@ -97,7 +106,8 @@ const Home: React.FC = () => {
         display="flex"
         justifyContent="center"
         sx={{
-          backgroundColor: theme.palette.primary.light,
+          background:
+            "linear-gradient(90deg, rgba(78,81,106,1) 0%, rgba(48,50,64,1) 71%)",
         }}
       >
         <Typography
@@ -116,7 +126,8 @@ const Home: React.FC = () => {
         marginTop="0em"
         paddingBottom="2em"
         sx={{
-          backgroundColor: theme.palette.primary.light,
+          background:
+            "linear-gradient(90deg, rgba(78,81,106,1) 0%, rgba(48,50,64,1) 71%)",
         }}
       >
         <Container>
@@ -127,7 +138,8 @@ const Home: React.FC = () => {
       <Box
         marginTop="0em"
         sx={{
-          backgroundColor: theme.palette.secondary.main,
+          background:
+            "linear-gradient(90deg, rgba(78,81,106,1) 0%, rgba(48,50,64,1) 71%)",
         }}
       >
         <Container sx={{ padding: "1em" }}>
@@ -146,7 +158,7 @@ const Home: React.FC = () => {
         width="100%"
         paddingTop="1em"
         sx={{
-          backgroundColor: theme.palette.primary.light,
+          backgroundColor: theme.palette.secondary.main,
         }}
       >
         <Typography variant="h6" align="center" color="white">
@@ -155,9 +167,9 @@ const Home: React.FC = () => {
       </Box>
       <Box
         marginTop="0.5em"
-        paddingBottom="1em"
+        paddingBottom="0em"
         sx={{
-          backgroundColor: theme.palette.primary.light,
+          backgroundColor: theme.palette.secondary.main,
         }}
       >
         <Container>
@@ -171,6 +183,15 @@ const Home: React.FC = () => {
             {getTechnology()}
           </Grid>
         </Container>
+        <Box>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#3f4155"
+              fill-opacity="1"
+              d="M0,128L48,133.3C96,139,192,149,288,149.3C384,149,480,139,576,117.3C672,96,768,64,864,74.7C960,85,1056,139,1152,154.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+        </Box>
       </Box>
     </Box>
   );

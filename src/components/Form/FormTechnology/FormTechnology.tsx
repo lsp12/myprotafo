@@ -42,7 +42,7 @@ const FormTechnology: React.FC = () => {
       sx={{
         width: "35%",
         minWidth: "25em",
-        background: "#b98d74",
+        background: "#1f212b",
         border: "2px solid white",
       }}
     >
@@ -141,8 +141,9 @@ const FormTechnology: React.FC = () => {
       <CardActions sx={{ justifyContent: "center" }}>
         <Button
           size="small"
-          color="primary"
           type="submit"
+          color="secondary"
+          variant="contained"
         >
           Save
         </Button>

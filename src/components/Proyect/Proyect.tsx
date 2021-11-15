@@ -47,6 +47,10 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect, view, admin }) => {
     dispatch(OPEN_PROYECT_ACTION(proyect));
   };
 
+  const scrollToBottom = (): void => {
+    document.getElementById( 'scroll' )?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <Grid item xs={12} sm={4}>
       <CardStyled sx={{ maxWidth: "100%", minHeight: "100%", height: "100%" }}>
@@ -93,7 +97,10 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect, view, admin }) => {
         <Box display="flex" alignItems="center" justifyContent="right">
           {view && (
             <CardActions>
-              <RemoveRedEyeOutlinedIcon onClick={handleOpen} />
+              <RemoveRedEyeOutlinedIcon onClick={()=>{
+                handleOpen()
+                scrollToBottom()
+                }} />
             </CardActions>
           )}
           {admin && (

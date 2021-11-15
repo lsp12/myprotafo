@@ -1,6 +1,6 @@
-import { AppBar, Button, IconButton, Toolbar, Typography, useTheme } from "@mui/material";
+import { AppBar, Button,  Toolbar,  useTheme } from "@mui/material";
 import { Box } from "@mui/system";
-import MenuIcon from "@mui/icons-material/Menu";
+
 import React from "react";
 /* import { ScrollY } from "../Resolution/Resolution"; */
 import { Link } from "react-router-dom";
@@ -13,20 +13,10 @@ const NavBar: React.FC = () => {
       <AppBar position="fixed">
         <Toolbar sx={{
           background:theme.palette.primary.main,
+          justifyContent:"flex-end"
         }}>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
-          </Typography>
-          <Button color="inherit">
+          
+          {/* <Button color="inherit">
             <Link
               to="/login"
               style={{ textDecoration: "none", color: "inherit" }}
@@ -42,7 +32,7 @@ const NavBar: React.FC = () => {
             >
               Register
             </Link>
-          </Button>
+          </Button> */}
 
           <Button color="inherit">
             <Link

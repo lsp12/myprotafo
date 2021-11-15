@@ -8,7 +8,7 @@ export const loginValidationSchema = yup.object().shape({
 export const FormWebPageSchema = yup.object().shape({
     title: yup.string().required("El titulo no puede estar vacio."),
     description: yup.string().required("La descripcion no puede estar vacia."),
-    link: yup.string().required("La url no puede estar vacia."),
+    link: yup.string(),
     
 })
 

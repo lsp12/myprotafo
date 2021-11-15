@@ -12,7 +12,7 @@ const initialState:IOpenProyectSlice = {
         id: "",
         title: "",
         description: "",
-        link: "",
+        link: [],
         item: []
     }
 }

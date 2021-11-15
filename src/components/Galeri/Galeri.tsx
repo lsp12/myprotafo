@@ -1,7 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Button, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import "./Style.css";
 import { useAppSelector } from "../../Store/hooks";
 import { IFormTechonology, IProject } from "../../interface/interface";
@@ -14,11 +14,10 @@ const Galery = () => {
     (state) => state.OpenProyect.openProyect
   );
   const { projects } = useAppSelector((state) => state.webPage);
-  if(!openProyect.id){
-    openProyect=projects[0]
-  
+  if (!openProyect.id) {
+    openProyect = projects[0];
   }
-  
+
   const { technology } = useAppSelector((state) => state.technology);
   const [nameById, setNameById] = useState<IFormTechonology[]>([]);
 
@@ -47,7 +46,18 @@ const Galery = () => {
   }, [technology, openProyect]);
 
   return (
-    <Grid container direction="row" justifyContent="center" alignItems="center">
+    <Grid
+      container
+      direction="row"
+      justifyContent="center"
+      
+      sx={{
+        backgroundColor: "#474c67",
+        padding: "2em",
+        paddingTop: "15px",
+        boxShadow: 3,
+      }}
+    >
       <Grid item xs={12} md={12}>
         <Box textAlign="center">
           <Typography color="white" variant="inherit" fontSize="19px">
@@ -57,37 +67,59 @@ const Galery = () => {
       </Grid>
       <Grid item xs={6} md={5}>
         <Slider {...settings}>
-          <CardStyled sx={{ minHeight: "15em", display: "flex" }}>
-            <CardContent sx={{ alignSelf: "center" }}>
-              <CardMedia
-                image={openProyect.link}
-                title="Contemplative Reptile"
-                component="img"
-                height="150em"
-              />
-            </CardContent>
-          </CardStyled>
-          <CardStyled>
-            <CardContent>
-              <h3>2</h3>
-            </CardContent>
-          </CardStyled>
-          <CardStyled>
-            <CardContent>
-              <h3>3</h3>
-            </CardContent>
-          </CardStyled>
+          {openProyect.link.map((link) => {
+            return (
+              <CardStyled sx={{ minHeight: "15em", display: "flex" }}>
+                <CardContent sx={{ alignSelf: "center" }}>
+                  <CardMedia
+                    image={link}
+                    title="Contemplative Reptile"
+                    component="img"
+                    height="150em"
+                  />
+                </CardContent>
+              </CardStyled>
+            );
+          })}
         </Slider>
       </Grid>
-      <Grid item xs={6} md={7} sx={{
-        paddingLeft: "2em",
-      }}>
+      <Grid
+        item
+        xs={6}
+        md={7}
+        sx={{
+          paddingLeft: "2em",
+          backgroundColor: "#45485e",
+          
+        }}
+      >
         <h2>{openProyect.title}</h2>
         <p>{openProyect.description}</p>
-        <Box display="flex" alignItems="center" alignSelf="initial">
+        <Box display="flex" alignItems="center" alignSelf="initial" overflow="auto">
           {nameById.map((item: IFormTechonology) => (
-            <p style={{ paddingRight: "0.5em" }}>{item.technology}</p>
+            <p
+              style={{
+                paddingRight: "0.5em",
+                backgroundColor: "#424242",
+                borderRadius: "5%",
+                border:"1px solid",
+                padding:"0.2em",
+                marginRight: "0.5em",
+                color: "white",
+                whiteSpace: "nowrap",
+                
+              }}
+            >
+              {item.technology}
+            </p>
           ))}
+        </Box>
+        <Box   height="5em" display="flex" justifyContent= "flex-end">
+          <Box sx={{
+            alignSelf: "flex-end",
+          }}>
+        <Button color="primary">Visitar pagina</Button>
+        </Box>
         </Box>
       </Grid>
     </Grid>

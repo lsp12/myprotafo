@@ -38,7 +38,7 @@ const Perfil: React.FC = () => {
       >
         <Grid item xs={12}>
           <Box display="flex" alignItems="center">
-            <Box marginRight="2em">
+            <Box marginRight="2em" minWidth="50%">
               <CardContent>
                 <Typography
                   sx={{ fontSize: 14 }}
@@ -72,16 +72,16 @@ const Perfil: React.FC = () => {
                       Cuentas
                       <br />
                       <Typography
-                        sx={{ textDecoration: "none", color: "#323232" }}
+                        sx={{ textDecoration: "none", color: "#323232", display: "flex", alignItems: "center" }}
                       >
                         <a href="https://github.com/lsp12" target="_blank">
-                          <GitHubIcon sx={{ color: "#323232" }} />
+                          <GitHubIcon sx={{ color: "text.secondary" }} />
                         </a>
                         <a
                           href="https://www.linkedin.com/in/jonathan-kenny-vera-macias-b23234202/"
                           target="_blank"
                         >
-                          <LinkedInIcon sx={{ color: "#323232" }} />
+                          <LinkedInIcon sx={{ color: "text.secondary" }} />
                         </a>
                       </Typography>
                     </Typography>
@@ -101,7 +101,7 @@ const Perfil: React.FC = () => {
                           href="https://api.whatsapp.com/send?phone=+593997747417"
                           target="_blank"
                         >
-                          <WhatsAppIcon sx={{ color: "#323232" }} />
+                          <WhatsAppIcon sx={{ color: "text.secondary" }} />
                         </a>
                       </Typography>
                     </Typography>
@@ -134,7 +134,7 @@ const Perfil: React.FC = () => {
                 display: "flex",
               }}
             >
-              <About style={{ width: "50%" }} />
+              <About style={{ width: "100%" }} />
             </Box>
           </Box>
         </Grid>
