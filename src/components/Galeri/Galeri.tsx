@@ -65,7 +65,7 @@ const Galery = () => {
           </Typography>
         </Box>
       </Grid>
-      <Grid item xs={6} md={5}>
+      <Grid item xs={12} md={5}>
         <Slider {...settings}>
           {openProyect.link.map((link) => {
             return (
@@ -85,7 +85,7 @@ const Galery = () => {
       </Grid>
       <Grid
         item
-        xs={6}
+        xs={12}
         md={7}
         sx={{
           paddingLeft: "2em",

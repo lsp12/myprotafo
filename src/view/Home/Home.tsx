@@ -63,13 +63,14 @@ const Home: React.FC = () => {
     >
       <Box
         sx={{
-          width: "100%",
           minHeight: "100vh",
           background:
             "linear-gradient(90deg, rgba(78,81,106,1) 0%, rgba(48,50,64,1) 71%)",
         }}
       >
-        <Perfil />
+        <Container>
+          <Perfil />
+        </Container>
       </Box>
       <Box
         width="100%"
