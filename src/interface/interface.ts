@@ -27,7 +27,10 @@ export interface IAuth {
 
 export interface IUser {
   email: string;
-  createdAt: number;
+  createdAt: {
+    seconds: number;
+    nanoseconds: number;
+  };
 }
 
 export interface IFormTechonology {

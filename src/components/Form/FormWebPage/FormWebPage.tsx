@@ -154,9 +154,8 @@ const FormWebPage: React.FC = () => {
           >
             New web page
           </Typography>
-          <Typography
+          <Box
             sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
-            color="text.secondary"
           >
             <TextField
               id="outlined-basic"
@@ -166,14 +165,14 @@ const FormWebPage: React.FC = () => {
               {...getFieldProps("title")}
               sx={{ width: "100%" }}
             />
-          </Typography>
+          </Box>
           {errors.title && touched.title && (
             <Typography sx={{ fontWeight: 700, fontSize: 14, color: "red" }}>
               {errors.title}
             </Typography>
           )}
 
-          <Typography
+          <Box
             sx={{
               mb: 1.5,
               marginTop: "2em",
@@ -181,7 +180,6 @@ const FormWebPage: React.FC = () => {
               display: "flex",
               alignItems: "center",
             }}
-            color="text.secondary"
           >
             <TextField
               id="outlined-basic"
@@ -196,7 +194,7 @@ const FormWebPage: React.FC = () => {
             <Fab size="small" color="primary" aria-label="add">
               <AddIcon onClick={addLink} />
             </Fab>
-          </Typography>
+          </Box>
           <TransitionGroup>
             {links.length > 0 &&
               links.map((item: string, index) => (
@@ -205,9 +203,8 @@ const FormWebPage: React.FC = () => {
                 </Collapse>
               ))}
           </TransitionGroup>
-          <Typography
+          <Box
             sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
-            color="text.secondary"
           >
             <TextField
               id="outlined-basic"
@@ -224,7 +221,7 @@ const FormWebPage: React.FC = () => {
                 {errors.description}
               </Typography>
             )}
-          </Typography>
+          </Box>
 
           <FormControl sx={{ m: 1, width: 300 }} variant="filled">
             <InputLabel id="demo-multiple-chip-label">Chip</InputLabel>

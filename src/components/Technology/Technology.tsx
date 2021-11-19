@@ -18,7 +18,7 @@ interface tec {
 
 const Technology: React.FC<tec> = ({ tecnologi, admin }) => {
   return (
-    <Grid item xs={6}>
+    <Grid item sm={6} xs={12}>
       <CardStyled variant="outlined" sx={{ maxWidth: "100%", minHeight:"100%", height:"100%", marginBottom: "0.5em" }} >
         <CardContent>
           <Box

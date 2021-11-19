@@ -69,9 +69,10 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect, view, admin }) => {
           </Typography>
           <Box display="flex" alignItems="center" overflow="auto">
             {listech &&
-              listech.map((item: IFormTechonology) => {
+              listech.map((item: IFormTechonology, index) => {
                 return (
                   <Box
+                  key={index}
                     borderRadius="5%"
                     padding="0.2em"
                     border="1px solid"

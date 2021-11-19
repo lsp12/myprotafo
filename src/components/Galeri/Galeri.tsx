@@ -67,9 +67,9 @@ const Galery = () => {
       </Grid>
       <Grid item xs={12} md={5}>
         <Slider {...settings}>
-          {openProyect.link.map((link) => {
+          {openProyect.link.map((link, index) => {
             return (
-              <CardStyled sx={{ minHeight: "15em", display: "flex" }}>
+              <CardStyled key={index} sx={{ minHeight: "15em", display: "flex" }}>
                 <CardContent sx={{ alignSelf: "center" }}>
                   <CardMedia
                     image={link}
@@ -96,8 +96,9 @@ const Galery = () => {
         <h2>{openProyect.title}</h2>
         <p>{openProyect.description}</p>
         <Box display="flex" alignItems="center" alignSelf="initial" overflow="auto">
-          {nameById.map((item: IFormTechonology) => (
+          {nameById.map((item: IFormTechonology,index) => (
             <p
+              key={index}
               style={{
                 paddingRight: "0.5em",
                 backgroundColor: "#424242",

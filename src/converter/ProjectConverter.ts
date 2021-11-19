@@ -8,6 +8,7 @@ const projectConverter = {
     fromFirestore:(snapshot:QueryDocumentSnapshot, options: SnapshotOptions):IProject=>{
         const data = snapshot.data(options);
         const {title,description,link,item} = data;
+        
         return {
             id:snapshot.id,
             title,

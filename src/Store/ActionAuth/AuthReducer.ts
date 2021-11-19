@@ -44,7 +44,7 @@ export const getUserLogeed = createAsyncThunk("auth/getUserLogeed", async (id:st
     const {email, createdAt}=userData as IUser
     return {
       email,
-      createdAt
+      createdAt: createdAt.seconds,
     }
   } catch (error) {
   }

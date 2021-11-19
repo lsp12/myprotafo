@@ -68,9 +68,8 @@ const FormLogin: React.FC = () => {
           <Typography variant="h5" component="div" marginTop="0.5em" textAlign="center">
             Login
           </Typography>
-          <Typography
+          <Box
             sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
-            color="text.secondary"
           >
             <TextField
               id="outlined-basic"
@@ -80,10 +79,9 @@ const FormLogin: React.FC = () => {
               onChange={handleInputChange}
               sx={{ width: "100%" }}
             />
-          </Typography>
-          <Typography
+          </Box>
+          <Box
             sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
-            color="text.secondary"
           >
             <TextField
               id="outlined-basic"
@@ -93,7 +91,7 @@ const FormLogin: React.FC = () => {
               name="password"
               sx={{ width: "100%" }}
             />
-          </Typography>
+          </Box>
         </CardContent>
         <CardActions sx={{ justifyContent: "center" }}>
           <Button size="small" color="primary" onClick={()=>{

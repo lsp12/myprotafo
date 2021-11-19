@@ -7,6 +7,7 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { Box } from "@mui/system";
 import { useFormik } from "formik";
 import React from "react";
 import { toast } from "react-toastify";
@@ -70,9 +71,8 @@ const FormRegister: React.FC = () => {
           >
             Register
           </Typography>
-          <Typography
+          <Box
             sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
-            color="text.secondary"
           >
             <TextField
               id="outlined-basic"
@@ -84,11 +84,10 @@ const FormRegister: React.FC = () => {
               helperText={touched.email && errors.email}
             />
             
-          </Typography>
+          </Box>
           
-          <Typography
+          <Box
             sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
-            color="text.secondary"
           >
             <TextField
               id="outlined-basic"
@@ -100,10 +99,9 @@ const FormRegister: React.FC = () => {
               helperText={touched.password && errors.password}
             />
             
-          </Typography>
-          <Typography
+          </Box>
+          <Box
             sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
-            color="text.secondary"
           >
             <TextField
               id="outlined-basic"
@@ -115,7 +113,7 @@ const FormRegister: React.FC = () => {
               helperText={touched.confirPassword && errors.confirPassword}
             />
             
-          </Typography>
+          </Box>
         </CardContent>
         <CardActions sx={{ justifyContent: "center" }}>
           <Button

@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { loginSet } from "../../../Store/ActionAuth/AuthReducer";
 import { useAppDispatch } from "../../../Store/hooks";
+import { Box } from "@mui/system";
 
 interface ILoginForm {
   email: string;
@@ -57,9 +58,8 @@ const FormFoms = () => {
             >
               Login
             </Typography>
-            <Typography
+            <Box
               sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
-              color="text.secondary"
             >
               <TextField
                 id="outlined-basic"
@@ -71,10 +71,9 @@ const FormFoms = () => {
                 helperText={touched.email && errors.email}
               />
               
-            </Typography>
-            <Typography
+            </Box>
+            <Box
               sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
-              color="text.secondary"
             >
               <TextField
                 id="outlined-basic"
@@ -86,7 +85,7 @@ const FormFoms = () => {
                 helperText={touched.password && errors.password}
               />
               
-            </Typography>
+            </Box>
           </CardContent>
           <CardActions sx={{ justifyContent: "center" }}>
             <Button size="small" color="secondary" type="submit">

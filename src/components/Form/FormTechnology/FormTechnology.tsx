@@ -13,6 +13,7 @@ import { IFormTechonology } from "../../../interface/interface";
 import { useAppDispatch } from "../../../Store/hooks";
 import { FormTEchonologyYup } from "../../../validationSchema/validationSchema";
 import { saveTechnology } from "../../../Store/ActionTechnology/TechnologyReducer";
+import { Box } from "@mui/system";
 
 const FormTechnology: React.FC = () => {
   /* type InputChange = ChangeEvent<HTMLInputElement | HTMLTextAreaElement>; */
@@ -58,7 +59,7 @@ const FormTechnology: React.FC = () => {
         >
           New web Technology
         </Typography>
-        <Typography
+        <Box
           sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
           color="text.secondary"
         >
@@ -75,9 +76,9 @@ const FormTechnology: React.FC = () => {
               {errors.technology}
             </Typography>
           )}
-        </Typography>
+        </Box>
 
-        <Typography
+        <Box
           sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
           color="text.secondary"
         >
@@ -94,9 +95,9 @@ const FormTechnology: React.FC = () => {
               {errors.urlimage}
             </Typography>
           )}
-        </Typography>
+        </Box>
 
-        <Typography
+        <Box
           sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
           color="text.secondary"
         >
@@ -113,10 +114,10 @@ const FormTechnology: React.FC = () => {
               {errors.description}
             </Typography>
           )}
-        </Typography>
+        </Box>
 
 
-        <Typography
+        <Box
           sx={{ mb: 1.5, marginTop: "2em", textAlign: "center" }}
           color="text.secondary"
         >
@@ -133,7 +134,7 @@ const FormTechnology: React.FC = () => {
               {errors.url}
             </Typography>
           )}
-        </Typography>
+        </Box>
 
 
         
