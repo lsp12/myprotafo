@@ -1,7 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Button, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import "./Style.css";
 import { useAppSelector } from "../../Store/hooks";
 import { IFormTechonology, IProject } from "../../interface/interface";

@@ -7,7 +7,6 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
-import Portafolio from "../../image/proyect1.jpeg";
 import { IFormTechonology, IProject } from "../../interface/interface";
 import { useAppDispatch, useAppSelector } from "../../Store/hooks";
 import { DeleteProyect } from "../Dialogs/Dialogs";
@@ -50,14 +49,13 @@ const Proyect: React.FC<Iproyectprops> = ({ proyect, view, admin }) => {
   const scrollToBottom = (): void => {
     document.getElementById( 'scroll' )?.scrollIntoView({ behavior: 'smooth' });
   };
-
   return (
     <Grid item xs={12} sm={4}>
       <CardStyled sx={{ maxWidth: "100%", minHeight: "100%", height: "100%" }}>
         <CardMedia
           component="img"
           height="140"
-          image={Portafolio}
+          image={proyect["link"][0]}
           alt="green iguana"
         />
         <CardContent>
