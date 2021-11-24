@@ -75,7 +75,7 @@ const Galery = () => {
                     image={link}
                     title="Contemplative Reptile"
                     component="img"
-                    height="150em"
+                    height="100%"
                   />
                 </CardContent>
               </CardStyled>
