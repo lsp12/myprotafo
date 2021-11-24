@@ -115,13 +115,13 @@ const Galery = () => {
             </p>
           ))}
         </Box>
-        <Box   height="5em" display="flex" justifyContent= "flex-end">
+        {/* <Box   height="5em" display="flex" justifyContent= "flex-end">
           <Box sx={{
             alignSelf: "flex-end",
           }}>
         <Button color="primary">Visitar pagina</Button>
         </Box>
-        </Box>
+        </Box> */}
       </Grid>
     </Grid>
   );
